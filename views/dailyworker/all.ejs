@@ -1,0 +1,44 @@
+<% layout('layout/boilerplate') %>
+
+<div class="container" style="margin-top: 18vh;">
+
+    <div>
+        <div class="m-4 text-center">
+
+            <h3>Daily workers</h3>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">SL No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Leaves Taken</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% var sum=0; for(var i=0;i<allworkers.length;i++){ %>
+                    <tr>
+                        <th scope="row">
+                            <%= i + 1%>
+                        </th>
+                        <td>
+                            <%= allworkers[i].name %>
+                        </td>
+                        <td>
+                            <%=allworkers[i].leaves.length%>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+
+            <div class="d-flex justify-content-between">
+                <a href="/leave/getall" class="btn btn-primary">View More</a>
+            </div>
+
+        <footer
+            class="d-flex flex-wrap text-center justify-content-between align-items-center py-3 mt-4  mb-0 border-top"
+            style="background-color: #e3f2fd;">
+            <p class="col-md-12 mb-0 text-muted">@SAC Portal</p>
+        </footer>
