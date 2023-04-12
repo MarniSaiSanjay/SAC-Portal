@@ -19,64 +19,64 @@
                 <div class="card bg-light mt-5 w-50" style="max-width: 18rem; height: 20rem;">
 
                     <div class="card-body col-auto-mb-2"
-                        style="background-color: #e3f2fd; display: flex; flex-direction: column; justify-content: space-around;">
+                        style="background: none; display: flex; flex-direction: column; justify-content: space-around;">
                         
                         <%if(currentUser.isWarden || currentUser.isStudent){%> 
                             <div class="mt-4 m-1 mb-2">
-                            <a href="/complaint" class="btn btn-info btn-lg btn-block m-1.5 ">View Complaints </a>
+                            <a href="/complaint" class="btn btn-primary btn-lg btn-block m-1.5 ">View Complaints </a>
                             </div>
                         <% } %>
                         
                         <% if(currentUser.isStudent){ %>
                             <div class="mt-4 m-1 mb-2">
-                                <a href="/profile" class="btn btn-info btn-lg btn-block m-1.5 ">Profile </a>
+                                <a href="/profile" class="btn btn-primary btn-lg btn-block m-1.5 ">Profile </a>
                             </div>
                         <% } %>
 
                         <% if(currentUser.isStudent || currentUser.isMessIncharge){ %>
                         <div class="mt-4 m-1">
-                            <a href="/dues" class="btn btn-info btn-lg btn-block m-1.5 "> Dues </a>
+                            <a href="/dues" class="btn btn-primary btn-lg btn-block m-1.5 "> Dues </a>
                         </div>
                         <% } %>
 
                         <% if(currentUser.isMessIncharge){ %>
                         <div class="mt-4 m-1">
-                            <a href="/checkdues" class="btn btn-info btn-lg btn-block m-1.5 ">Check Dues </a>
+                            <a href="/checkdues" class="btn btn-primary btn-lg btn-block m-1.5 ">Check Dues </a>
                         </div>
                         <% } %>
                         
                         <% if(currentUser.isSACChairman){ %>
                         <div class="mt-4 m-1">
-                            <a href="/chairman/hostel" class="btn btn-info btn-lg btn-block m-1.5 ">Add Hostel </a>
+                            <a href="/chairman/hostel" class="btn btn-primary btn-lg btn-block m-1.5 ">Add Hostel </a>
                         </div>
 
                         <div class="mt-4 m-1">
-                            <a href="/chairman/funds" class="btn btn-info btn-lg btn-block m-1.5 ">Allocate Funds </a>
+                            <a href="/chairman/funds" class="btn btn-primary btn-lg btn-block m-1.5 ">Allocate Funds </a>
                         </div>
 
                         <div class="mt-4 m-1">
-                            <a href="/chairman/" class="btn btn-info btn-lg btn-block m-1.5 ">View Funds</a>
+                            <a href="/chairman/" class="btn btn-primary btn-lg btn-block m-1.5 ">View Funds</a>
                         </div>
                         <% } %>
 
                         <% if(currentUser.isCareTaker){ %>
                         <div class="mt-4 m-1">
-                            <a href="/dw/add" class="btn btn-info btn-lg btn-block m-1.5 ">Add Daily Worker </a>
+                            <a href="/dw/add" class="btn btn-success btn-lg btn-block m-1.5 ">Add Daily Worker </a>
                         </div>
 
                         <div class="mt-4 m-1">
-                            <a href="/dw/getall" class="btn btn-info btn-lg btn-block m-1.5 ">View Info </a>
+                            <a href="/dw/getall" class="btn btn-primary btn-lg btn-block m-1.5 ">View primary </a>
                         </div>
                         <% } %>
 
                         
                         <% if(currentUser.isCareTaker || currentUser.isWarden){ %>
                         <div class="mt-4 m-1">
-                            <a href="/leave/getall" class="btn btn-info btn-lg btn-block m-1.5 ">Check Leaves</a>
+                            <a href="/leave/getall" class="btn btn-primary btn-lg btn-block m-1.5 ">Check Leaves</a>
                         </div>
 
                         <div class="mt-4 m-1">
-                            <a href="/leave/add" class="btn btn-info btn-lg btn-block m-1.5 ">Add Leave</a>
+                            <a href="/leave/add" class="btn btn-primary btn-lg btn-block m-1.5 ">Add Leave</a>
                         </div>
 
                         <% } %>
@@ -86,8 +86,4 @@
                 </div>
             </div>
 
-            <footer
-                class=" fixed-bottom d-flex flex-wrap text-center justify-content-between align-items-center py-3 mt-4  mb-0 border-top"
-                style="background-color: #e3f2fd;" id="footer">
-                <p class="col-md-12 mb-0 text-muted">@SAC Portal</p>
-            </footer>
+           

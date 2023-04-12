@@ -13,36 +13,38 @@
                 <h1 class="h3 mb-3 font-weight-normal">Signup</h1>
             </div>
 
-            <div class="form-label-group">
-                <input type="text" id="inputName" class="form-control" placeholder="Name" name="username"
-                    value="<%= typeof username != 'undefined' ? username : '' %>" required autofocus>
+            <div class="form-label-group my-3">
                 <label for="inputName">Username</label>
+                <input type="text" id="inputName" class="form-control" placeholder="Username" name="username"
+                    value="<%= typeof username != 'undefined' ? username : '' %>" required autofocus>
+                
             </div>
 
-            <div class="form-label-group">
+            <div class="form-label-group my-3">
+                <label for="inputEmail">Email address</label>
                 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email"
                     value="<%= typeof email != 'undefined' ? email : '' %>" required >
-                <label for="inputEmail">Email address</label>
+                
             </div>
 
-            <div class="form-label-group">
+            <div class="form-label-group my-3">
+                <label for="inputPassword">Create Password</label>
                 <input type="password" id="inputPassword" class="form-control" placeholder="Create Password"
                     name="password" required>
-                <label for="inputPassword">Create Password</label>
             </div>
 
-            <div class="form-label-group">
-                <input type="password" id="inputPassword2" class="form-control" placeholder="Confirm Password"
-                    name="password2" required>
+            <div class="form-label-group my-3">
                 <label for="inputPassword2">Confirm Password</label>
+                <input type="password" id="inputPassword2" class="form-control" placeholder="Confirm Password"
+                name="password2" required>
+                
             </div>
 
-            <button class="btn btn-lg btn-primary btn-block" style="width: 100%;" type="submit">SignUp</button>
+            <button class="btn btn-lg btn-primary btn-block my-4" style="width: 100%;" type="submit">SignUp</button>
             <div class="text-center">
                 <hr class="mt-4">
                 <p>Already have an account? <a href="/users/login"
-                        style="font-weight: 600; text-decoration: none;">Login</a> </p>
-                <p class="mt-5 mb-3 text-muted ">&copy; 2021</p>
+                        style="font-weight: 800; font-size: large; text-decoration: none;">Login</a> </p>
             </div>
 
         </form>

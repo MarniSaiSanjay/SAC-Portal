@@ -24,17 +24,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>SAC Portal</title>
+    <style>
+        body{
+            /* background-image: url('https://images.freeimages.com/images/large-previews/3b2/prague-conference-center-1056491.jpg'); */
+            background-image: url('/bg.png');
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>
     <%- include('../partials/navbar')%>
         <main class="container mt-2">
-            <%#- include('../partials/flash')%>
-                <!-- Including a partial 'flash' , instead we can include that total code here too. -->
                 <%- body %>
         </main>
 
-        <%# include('../partials/footer')%>
+        <%- include('../partials/footer')%>
 
             <!-- <footer class="footer bg-dark py-4 mt-auto">
     <div class="container text-center">

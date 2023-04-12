@@ -25,9 +25,14 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
 
     <style>
+        body{
+            /* background-image: url('https://images.freeimages.com/images/large-previews/3b2/prague-conference-center-1056491.jpg'); */
+            background-image: url('/bg.png');
+            background-size: cover;
+        }
         .student-profile .card {
             border-radius: 10px;
-            background-color: #e3f2fd;
+            /* background-color: #54a5e0; */
         }
 
         .student-profile .card .card-header .profile_img {
@@ -55,12 +60,18 @@
             padding: 5px 10px;
             color: #000;
         }
+    .footer{
+        background-color: #54a5e0;
+        position: absolute;
+        bottom: 0;
+        padding: 10px;
+    }
     </style>
 
 </head>
 
 <body>
-    <nav class="navbar fixed-top  navbar-light navbar-expand-lg " style="background-color: #e3f2fd;">
+    <nav class="navbar fixed-top  navbar-light navbar-expand-lg " style="background-color: #54a5e0;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -155,11 +166,12 @@
             </div>
         </div>
     </div>
-
-    <footer class="  d-flex flex-wrap text-center justify-content-between align-items-center py-3 mt-4  mb-0 border-top"
-        style="background-color: #e3f2fd;" id="footer">
-        <p class="col-md-12 mb-0 text-muted">@SAC Portal</p>
-    </footer>
 </body>
+
+<footer class="footer pb-3 w-100 fixed-bottom">
+    <div class="container text-center">
+        <span class=" footer_span" style="color: white;"> &copy; SAC Portal</span>
+    </div>
+</footer>
 
 </html>
