@@ -38,7 +38,7 @@
 
       <div >
         <div class="m-4 text-center">
-        <h3 >Leave Requests</h3>
+        <h3 >Leaves Info</h3>
         </div>
         <% for( worker of workers) {%>
         <div class="card m-2">
@@ -46,9 +46,12 @@
             <div class="card-body d-flex justify-content-between">  
                 <h6><%=worker.name %></h6>
                 <ul>
+                  <% if(worker.leaves.length==0){ %>
+                    <li>No leaves taken</li>
+                    <% }else{ %>
                 <%for( leave of worker.leaves) {%>
                         <li><%=leave.date.toDateString() %></li>
-                    <%}%>
+                    <%}}%>
                 </ul>
             </div>
           </div>

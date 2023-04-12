@@ -30,6 +30,7 @@ const userSchema = new Schema({
     },
     admNumber: {
         type: String,
+        default: ""
     },
     isCareTaker: {
         type: Boolean,

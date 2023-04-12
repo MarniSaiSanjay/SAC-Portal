@@ -66,7 +66,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-const { isLoggedIn, isMessIncharge } = require('./middleware');
+const { isLoggedIn, isMessIncharge, isCareTaker, isSACChairman, isWarden } = require('./middleware');
 
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
@@ -88,7 +88,7 @@ app.get('/dues', isLoggedIn, async (req, res) => {
     const dues = currentUser.messDues;
 
     if (currentUser.isStudent) return res.render('dues/student', { dues });
-    if (currentUser.isMessIncharge) return res.render('dues/messIncharge');
+    else if (currentUser.isMessIncharge) return res.render('dues/messIncharge');
     return res.redirect('/');
 })
 
@@ -117,9 +117,16 @@ app.get('/checkdues', isLoggedIn, isMessIncharge, async (req, res) => {
 
 app.use('/users', require('./routes/auth'));
 app.use('/complaint', isLoggedIn, require('./routes/complaint'));
-app.use('/chairman', isLoggedIn, require('./routes/chairman'));
+app.use('/chairman', isLoggedIn, isSACChairman, require('./routes/chairman'));
 app.use('/leave', require('./routes/leave'));
 app.use('/dw', require('./routes/dailyworker'));
+
+app.get('/clearDue/:id', async (req, res) => {
+    const user = await User.findById(req.params.id);
+    user.messDues = [];
+    await user.save();
+    res.redirect('/checkdues');
+})
 
 app.use("*", (req, res) => {
     res.send("page not found");

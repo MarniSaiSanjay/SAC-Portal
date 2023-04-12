@@ -16,10 +16,10 @@
         <div class="container" style="margin-top: 18vh; margin-bottom: 18vh;" id="body-content">
 
             <div class="d-flex justify-content-center">
-                <div class="card bg-light mt-5 w-50" style="max-width: 18rem; height: 18rem;">
+                <div class="card bg-light mt-5 w-50" style="max-width: 18rem; height: 20rem;">
 
                     <div class="card-body col-auto-mb-2"
-                        style="background-color: #e3f2fd; display: flex; flex-direction: column; justify-content: space-between;">
+                        style="background-color: #e3f2fd; display: flex; flex-direction: column; justify-content: space-around;">
                         
                         <%if(currentUser.isWarden || currentUser.isStudent){%> 
                             <div class="mt-4 m-1 mb-2">
@@ -52,6 +52,10 @@
 
                         <div class="mt-4 m-1">
                             <a href="/chairman/funds" class="btn btn-info btn-lg btn-block m-1.5 ">Allocate Funds </a>
+                        </div>
+
+                        <div class="mt-4 m-1">
+                            <a href="/chairman/" class="btn btn-info btn-lg btn-block m-1.5 ">View Funds</a>
                         </div>
                         <% } %>
 

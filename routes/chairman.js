@@ -2,18 +2,19 @@ const express=require('express')
 const router=express.Router()
 
 const User = require('../models/user');
-const Hostel = require('../models/hostel')
+const Hostel = require('../models/hostel');
+const { isSACChairman } = require('../middleware');
 
 router.get('/',async (req,res)=>{
     const hostels=await Hostel.find()
     return res.render('hostel/hostelList',{hostels})
 })
 
-router.get('/hostel',async(req,res)=>{
+router.get('/hostel', async(req,res)=>{
     return res.render('chairman/hostelAdd')
 })
 
-router.post('/hostel',async(req,res)=>{
+router.post('/hostel', async(req,res)=>{
         const newHostel= await new Hostel({
             name:req.body.name.toLowerCase()
         })
@@ -27,10 +28,10 @@ router.get('/funds', async (req, res) => {
 
 router.post('/funds',async(req,res)=>{
     console.log(req.body)
-        const hostelDetails=req.body
-        const currentHostel=await Hostel.findOne({name:hostelDetails.name})
-        const addMoney=parseInt(hostelDetails.funds)
-        if(addMoney>req.user.remFunds) return res.render('chairman/fundsAdd',{err:"insufficient funds"})
+    const hostelDetails=req.body
+    const currentHostel=await Hostel.findOne({name:hostelDetails.name})
+    const addMoney=parseInt(hostelDetails.funds)
+    if(addMoney>req.user.remFunds) return res.render('chairman/fundsAdd',{err:"insufficient funds"})
       
     currentHostel.funds += addMoney;
     const user = await User.findById(req.user.id);

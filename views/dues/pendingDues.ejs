@@ -60,14 +60,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% for(let u of users){ 
-                        var i = 0;
-                        var totalDue = 0;
+                    <% var totalDue = 0;
+                    var i = 0;
+                    for(let u of users){ 
                         if(u.messDues.length>0){ i++;%>
                         <% var sum=0; u.messDues.forEach(value=> {
                             sum += value.due;
                             }); 
-                            totalDue += sum%>
+
+                            totalDue += sum %>
                             <tr>
                                 <th scope="row">
                                     <%= i %>
@@ -78,6 +79,9 @@
                                 <td>
                                     <%= sum %>
                                 </td>
+                                <td>
+                                    <a href="/clearDue/<%=u.id%>" class="btn btn-info">Clear Due</a>
+                                </td>
 
                             </tr>
                             <% } %>
@@ -85,10 +89,9 @@
 
                 </tbody>
             </table>
-
             <div class="card m-2">
                 <div class="card-body d-flex justify-content-between">
-                    Amount Remaining : <%= sum %>
+                    Amount Remaining : <%= totalDue %>
                 </div>
             </div>
 

@@ -3,14 +3,11 @@ const router=express.Router()
 const Worker =require('../models/worker')
 const leave=require('../models/leave')
 
-router.get('/',async(req,res)=>{
-    res.send('hello form')
-})
 
 router.get('/getAll',async(req,res)=>{
-    // if(req.user.isWarden===false && req.user.isCaretaker===false){
-    //     return res.redirect('/');
-    // }
+    if(req.user.isWarden===false && req.user.isCaretaker===false){
+        return res.redirect('/');
+    }
     try{
     const workers=await Worker.find().populate('leaves')
     console.log(workers)
@@ -22,10 +19,16 @@ router.get('/getAll',async(req,res)=>{
 })
 
 router.get('/add', async (req, res) => {
+    if (req.user.isWarden === false && req.user.isCaretaker === false) {
+        return res.redirect('/');
+    }
     return res.render('leave/addleave');
 })
 
-router.post('/addLeave',async(req,res)=>{
+router.post('/addLeave', async (req, res) => {
+    if (req.user.isWarden === false && req.user.isCaretaker === false) {
+        return res.redirect('/');
+    }
     const leaveDetails=req.body
     const newLeave=new leave({
         name:leaveDetails.name,

@@ -27,3 +27,24 @@ module.exports.isMessIncharge = (req, res, next) => {
     }
     else next();
 }
+
+module.exports.isWarden = (req, res, next) => {
+    if (req.user.isWarden === false) {
+        return res.redirect('/home');
+    }
+    else next();
+}
+
+module.exports.isSACChairman = (req, res, next) => {
+    if (req.user.isSACChairman === false) {
+        return res.redirect('/home');
+    }
+    else next();
+}
+
+module.exports.isCareTaker = (req, res, next) => {
+    if (req.user.isCareTaker === false) {
+        return res.redirect('/home');
+    }
+    else next();
+}
